@@ -1,16 +1,16 @@
-# Description
+# Managing Gateways
 REST service (JSON/HTTP) for storing information about gateways and their associated peripheral devices.
 - Programming language: Java
 - Framework: Spring Boot
 - Database: In-memory
 - Automated build: Apache Maven
 
-## Available Scripts
+## Steps to Setup
 
-- To build open a console and execute ```shell mvn clean compile install -DskipTests ```
-- To run open a console and execute ```shell mvn spring-boot:run ```
+- To build open a console and execute ```mvn clean compile install -DskipTests```
+- To run open a console and execute ```mvn spring-boot:run```. The app will start running at http://localhost:8080
 
-# Endpoints:
+## Endpoints:
 
 ## Create a gateway:
 POST http://localhost:8080/gateways<br>
