@@ -24,7 +24,7 @@ Gateway services are protected from unauthoried access. First login using userna
 **Response** - On successful login returns 200(OK) and authorization token in headers.
 
 ### Signup
-There is also a signup api available to add new user.
+There is also a signup api available to add new user if required.
 **POST http://localhost:8080/signup**
 ```
 {
@@ -65,18 +65,21 @@ serial: serial of the gateway to retrieve
 ```
 **Response** - 200 (OK) and with body the gateway, or status 404 (Not Found) if gateway not exists
 
-### Add a device from a gateway
-POST http://localhost:8080/gateways/{serial}/device<br>
-body: {<br>
-"vendor": "string", // ex: Vendor A<br>
-"status": "online|offline" // ex: online<br>
+### Add a new device to the "serial" gateway
+**POST http://localhost:8080/gateways/{serial}/devices**<br />
+```
+{
+    "uid": "Long", // A unique id of the device
+    "vendor": "string", // Vendor name, ex: Vendor A
+    "status": "online|offline"
 }
+```
+**Response** - 200 (OK) and body with the updated gateway, or status 404 (Not Found) if gateway not exists or 400 (Bad Request) if 10 devices already added to gateway
 
-## Delete a gateway:
-DELETE http://localhost:8080/gateways/{serial} // ex: http://localhost:8080/gateways/AbC123
+### Delete the "serial" gateway.
+**DELETE http://localhost:8080/gateways/{serial}**<br />
+**Response** - 200 (OK) or status 404 (Not Found) if gateway not exists
 
-## Get a single gateway:
-GET http://localhost:8080/gateways/{serial} // ex: http://localhost:8080/gateways/AbC123
-
-## Remove a device from a gateway
-DELETE http://localhost:8080/gateways/{serial}/device/{device_uid} // ex: http://localhost:8080/gateways/AbC123/device/1
+### Delete the "uid" device from the "serial" gateway
+**DELETE http://localhost:8080/gateways/{serial}/devices/{uid}**<br />
+**Response** - 200 (OK) and body with updated gateway details or status 404 (Not Found) if gateway or device not exists
