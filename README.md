@@ -10,7 +10,34 @@ REST service (JSON/HTTP) for storing information about gateways and their associ
 - To build open a console and execute ```mvn clean compile install -DskipTests```
 - To run open a console and execute ```mvn spring-boot:run```. The app will start running at http://localhost:8080
 
-## Endpoints:
+## Authentication
+Gateway services are protected from unauthoried access. First login using username and password to get authorization token and pass this token in subsequent api calls.
+
+### Login
+POST http://localhost:8080/login
+body: {
+    "username": "apiuser",
+    "password": "apipass",
+}
+Response - On successful login returns 200(OK) and authorization token in headers.
+
+### Signup
+There is also a signup api available to add new user.
+POST http://localhost:8080/signup
+body: {
+    "username": "newuser",
+    "password": "newpass",
+}
+Response - On successful returns 200(OK).
+
+## Gateway Service Endpoints
+To access gateway services add authorization token into headers. ```Authorization: received token after login```
+
+### Get all stored gateways
+GET http://localhost:8080/gateways
+Parameters: page - page number to start
+            size - number of records to retrieve
+Response - 200 (OK) and the list of gateways in body
 
 ## Create a gateway:
 POST http://localhost:8080/gateways<br>
