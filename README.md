@@ -36,9 +36,10 @@ There is also a signup api available to add new user.
 To access gateway services add authorization token into headers. **```Authorization: "received token after login"```**
 
 ### Get all stored gateways
-**GET http://localhost:8080/gateways**
-**Parameters:** page - page number to start
-                size - number of records to retrieve
+**GET http://localhost:8080/gateways**<br />
+**Parameters:** 
+- page: page number to start
+- size: number of records to retrieve<br />
 **Response** - 200 (OK) and both with the list of gateways
 
 ### Add a new gateway
@@ -52,8 +53,9 @@ To access gateway services add authorization token into headers. **```Authorizat
 **Response** - 200 (OK) and body with the new gateway, or status 400 (Bad Request) if a gateway exists with same serial or IP Address invalid
 
 ### get the details of a gateway by serial
-**GET http://localhost:8080/gateways/{serial}**
-**Parameters:** serial - serial of the gateway to retrieve
+**GET http://localhost:8080/gateways/{serial}**<br />
+**Parameters:** 
+- serial: serial of the gateway to retrieve<br />
 **Response** - 200 (OK) and with body the gateway, or status 404 (Not Found) if gateway not exists
 
 ### Add a device from a gateway
