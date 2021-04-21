@@ -37,9 +37,10 @@ To access gateway services add authorization token into headers. **```Authorizat
 
 ### Get all stored gateways
 **GET http://localhost:8080/gateways**<br />
-**Parameters:**<br />
-page: page number to start<br />
-size: number of records to retrieve<br />
+**Parameters:**
+```page: page number to start<br />
+size: number of records to retrieve
+```
 **Response** - 200 (OK) and both with the list of gateways
 
 ### Add a new gateway
@@ -54,8 +55,9 @@ size: number of records to retrieve<br />
 
 ### get the details of a gateway by serial
 **GET http://localhost:8080/gateways/{serial}**<br />
-**Parameters:**<br />
-serial: serial of the gateway to retrieve<br />
+**Parameters:**
+```serial: serial of the gateway to retrieve
+```
 **Response** - 200 (OK) and with body the gateway, or status 404 (Not Found) if gateway not exists
 
 ### Add a device from a gateway
