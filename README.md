@@ -14,12 +14,12 @@ REST service (JSON/HTTP) for storing information about gateways and their associ
 Gateway services are protected from unauthoried access. First login using username and password to get authorization token and pass this token in subsequent api calls.
 
 ### Login
-POST http://localhost:8080/login
+```POST http://localhost:8080/login
 body: {
     "username": "apiuser",
     "password": "apipass",
 }
-Response - On successful login returns 200(OK) and authorization token in headers.
+Response - On successful login returns 200(OK) and authorization token in headers.```
 
 ### Signup
 There is also a signup api available to add new user.
