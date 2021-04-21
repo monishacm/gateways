@@ -15,7 +15,8 @@ Gateway services are protected from unauthoried access. First login using userna
 
 ### Login
 **POST http://localhost:8080/login**
-```body: {
+```
+{
     "username": "apiuser",
     "password": "apipass",
 }
@@ -25,7 +26,8 @@ Gateway services are protected from unauthoried access. First login using userna
 ### Signup
 There is also a signup api available to add new user.
 **POST http://localhost:8080/signup**
-```body: {
+```
+{
     "username": "newuser",
     "password": "newpass",
 }
@@ -38,14 +40,16 @@ To access gateway services add authorization token into headers. **```Authorizat
 ### Get all stored gateways
 **GET http://localhost:8080/gateways**<br />
 **Parameters:**
-```page: page number to start<br />
+```
+page: page number to start
 size: number of records to retrieve
 ```
 **Response** - 200 (OK) and both with the list of gateways
 
 ### Add a new gateway
 **POST http://localhost:8080/gateways**
-```body: {
+```
+{
     "serial": "string", //a unique serial number ex: abcd1234
     "name": "string", //a human-readable name ex: Gateway 1
     "ip": "string" //an IPv4 address ex: 10.0.0.1
@@ -56,7 +60,8 @@ size: number of records to retrieve
 ### get the details of a gateway by serial
 **GET http://localhost:8080/gateways/{serial}**<br />
 **Parameters:**
-```serial: serial of the gateway to retrieve
+```
+serial: serial of the gateway to retrieve
 ```
 **Response** - 200 (OK) and with body the gateway, or status 404 (Not Found) if gateway not exists
 
